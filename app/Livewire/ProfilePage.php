@@ -4,10 +4,10 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class Like extends Component
+class ProfilePage extends Component
 {
     public function render()
     {
-        return view('livewire.like');
+        return view('livewire.profile-page');
     }
 }

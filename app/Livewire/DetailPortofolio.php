@@ -4,10 +4,10 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-class Portofolio extends Component
+class DetailPortofolio extends Component
 {
     public function render()
     {
-        return view('livewire.portofolio');
+        return view('livewire.detail-portofolio');
     }
 }

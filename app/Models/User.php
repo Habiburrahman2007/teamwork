@@ -62,4 +62,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function canAccessFilament(): bool
+    {
+        return $this->role === 'admin';
+    }
+
 }

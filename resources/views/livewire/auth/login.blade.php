@@ -353,11 +353,12 @@
                   />
                 </a>
               </div>
-              <form>
+              <form wire:submit.prevent="login">
                 <div class="mb-[22px]">
                   <input
                     type="email"
                     placeholder="Email"
+                    wire:model="email"
                     class="w-full px-5 py-3 text-base transition bg-transparent border rounded-md outline-hidden border-stroke dark:border-dark-3 text-body-color dark:text-dark-6 placeholder:text-dark-6 focus:border-primary dark:focus:border-primary focus-visible:shadow-none"
                   />
                 </div>
@@ -365,6 +366,7 @@
                   <input
                     type="password"
                     placeholder="Password"
+                    wire:model="password"
                     class="w-full px-5 py-3 text-base transition bg-transparent border rounded-md outline-hidden border-stroke dark:border-dark-3 text-body-color dark:text-dark-6 placeholder:text-dark-6 focus:border-primary dark:focus:border-primary focus-visible:shadow-none"
                   />
                 </div>
