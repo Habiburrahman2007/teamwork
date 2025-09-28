@@ -1,25 +1,33 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Auth;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\Layout;
 
 class Login extends Component
 {
+    #[Layout('layouts.auth')]
     public $email;
     public $password;
+    public $remember = false;
+
+    protected $rules = [
+        'email' => 'required|email',
+        'password' => 'required|min:6',
+    ];
 
     public function login()
     {
-        $credentials = [
+        $this->validate();
+
+        if (Auth::guard('web')->attempt([
             'email' => $this->email,
             'password' => $this->password,
-        ];
-
-        if (Auth::attempt($credentials)) {
+        ], $this->remember)) {
             session()->regenerate();
-            return redirect()->intended('/dashboard');
+            return redirect()->route('home'); // ubah ke route user kamu
         }
 
         $this->addError('email', 'Email atau password salah.');
@@ -27,6 +35,6 @@ class Login extends Component
 
     public function render()
     {
-        return view('livewire.login');
+        return view('livewire.auth.login');
     }
 }

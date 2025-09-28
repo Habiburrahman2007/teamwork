@@ -117,8 +117,9 @@ return [
 
     'system_route_prefix' => 'filament',
     'auth' => [
-    'guard' => env('FILAMENT_AUTH_GUARD', 'web'),
+    'guard' => 'admin',
     ],
+
 
 
 
