@@ -5,10 +5,12 @@ namespace App\Livewire\Auth;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 
 class Login extends Component
 {
     #[Layout('layouts.auth')]
+    #[Title('Login Page')]
     public $email;
     public $password;
     public $remember = false;

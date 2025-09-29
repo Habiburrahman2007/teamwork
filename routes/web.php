@@ -7,7 +7,9 @@ Route::get('/', function () {
 });
 
 use App\Livewire\Auth\Login;
+use App\Livewire\Auth\Register;
 
+Route::get('/register', Register::class)->name('register');
 Route::get('/login', Login::class)->name('login');
 Route::get('/home', function () {
     return "User Dashboard";
