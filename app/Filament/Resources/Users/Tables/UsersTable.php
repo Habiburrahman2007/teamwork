@@ -2,11 +2,14 @@
 
 namespace App\Filament\Resources\Users\Tables;
 
-use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
+use Filament\Tables\Table;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
-use Filament\Tables\Table;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\BadgeColumn;
 
 class UsersTable
 {
@@ -14,7 +17,14 @@ class UsersTable
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name')->label('Nama')->searchable(),
+                TextColumn::make('email')->label('Email')->searchable(),
+                BadgeColumn::make('role')
+                    ->colors([
+                        'primary' => 'user',
+                        'success' => 'admin',
+                    ]),
+                TextColumn::make('created_at')->label('Dibuat')->dateTime(),
             ])
             ->filters([
                 //
@@ -22,6 +32,7 @@ class UsersTable
             ->recordActions([
                 ViewAction::make(),
                 EditAction::make(),
+                DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

@@ -18,7 +18,7 @@ class LikeResource extends Resource
 {
     protected static ?string $model = Like::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedHeart;
 
     public static function form(Schema $schema): Schema
     {

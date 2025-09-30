@@ -2,25 +2,25 @@
 
 namespace App\Filament\Resources\Portofolios;
 
-use App\Filament\Resources\Portofolios\Pages\CreatePortofolio;
-use App\Filament\Resources\Portofolios\Pages\EditPortofolio;
-use App\Filament\Resources\Portofolios\Pages\ListPortofolios;
-use App\Filament\Resources\Portofolios\Pages\ViewPortofolio;
-use App\Filament\Resources\Portofolios\Schemas\PortofolioForm;
-use App\Filament\Resources\Portofolios\Schemas\PortofolioInfolist;
-use App\Filament\Resources\Portofolios\Tables\PortofoliosTable;
-use App\Models\Portofolio;
 use BackedEnum;
-use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
+use App\Models\Portfolio;
 use Filament\Tables\Table;
+use Filament\Schemas\Schema;
+use Filament\Resources\Resource;
+use Filament\Support\Icons\Heroicon;
+use App\Filament\Resources\Portofolios\Pages\EditPortofolio;
+use App\Filament\Resources\Portofolios\Pages\ViewPortofolio;
+use App\Filament\Resources\Portofolios\Pages\ListPortofolios;
+use App\Filament\Resources\Portofolios\Pages\CreatePortofolio;
+use App\Filament\Resources\Portofolios\Schemas\PortofolioForm;
+use App\Filament\Resources\Portofolios\Tables\PortofoliosTable;
+use App\Filament\Resources\Portofolios\Schemas\PortofolioInfolist;
 
 class PortofolioResource extends Resource
 {
-    protected static ?string $model = Portofolio::class;
+    protected static ?string $model = Portfolio::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBriefcase;
 
     protected static ?string $recordTitleAttribute = 'title';
 
