@@ -116,9 +116,9 @@ return [
     */
 
     'system_route_prefix' => 'filament',
-    'auth' => [
-    'guard' => 'admin',
-    ],
+    'auth_guard' => 'admin',
+    'auth_provider' => 'admins',
+
 
 
 
