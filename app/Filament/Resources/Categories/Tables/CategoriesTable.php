@@ -21,26 +21,15 @@ class CategoriesTable
                     ->label('Nama')
                     ->sortable()
                     ->searchable(),
-                TextColumn::make('description')
-                    ->label('Deskripsi')
-                    ->limit(50),
-                IconColumn::make('is_active')
-                    ->label('Aktif')
-                    ->boolean(),
                 TextColumn::make('created_at')
                     ->label('Dibuat')
                     ->dateTime('d M Y'),
                 
             ])
             ->filters([
-                TernaryFilter::make('is_active')
-                    ->label('Status Aktif')
-                    ->trueLabel('Aktif')
-                    ->falseLabel('Nonaktif'),
                 
             ])
             ->recordActions([
-                EditAction::make(),
                 DeleteAction::make(),
             ])
             ->toolbarActions([

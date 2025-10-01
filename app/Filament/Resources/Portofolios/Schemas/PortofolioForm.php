@@ -33,6 +33,12 @@ class PortofolioForm
                 ->relationship('category', 'name')
                 ->searchable()
                 ->required(),
+            Select::make('user_id')
+                ->label('Created By')
+                ->relationship('user', 'name')
+                ->searchable()
+                ->required(),
+
             ]);
     }
 }
