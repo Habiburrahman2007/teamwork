@@ -52,7 +52,7 @@ class CommentResource extends Resource
             'index' => ListComments::route('/'),
             'create' => CreateComment::route('/create'),
             'view' => ViewComment::route('/{record}'),
-            'edit' => EditComment::route('/{record}/edit'),
+            //'edit' => EditComment::route('/{record}/edit'),
         ];
     }
 }

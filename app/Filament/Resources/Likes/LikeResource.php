@@ -42,7 +42,7 @@ class LikeResource extends Resource
         return [
             'index' => ListLikes::route('/'),
             'create' => CreateLike::route('/create'),
-            'edit' => EditLike::route('/{record}/edit'),
+            //'edit' => EditLike::route('/{record}/edit'),
         ];
     }
 }

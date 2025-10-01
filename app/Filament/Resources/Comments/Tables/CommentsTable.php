@@ -5,10 +5,12 @@ namespace App\Filament\Resources\Comments\Tables;
 use Filament\Tables\Table;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
+use Filament\Actions\ActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 
 class CommentsTable
 {
@@ -31,12 +33,19 @@ class CommentsTable
                     ->sortable(),
             ])
             ->filters([
-                //
+                SelectFilter::make('user')
+                    ->label('User')
+                    ->relationship('user', 'name'),
+                SelectFilter::make('portfolio')
+                    ->label('Portfolio')
+                    ->relationship('portfolio', 'title'),
             ])
             ->recordActions([
+                ActionGroup::make([
                 ViewAction::make(),
-                EditAction::make(),
+                //EditAction::make(),
                 DeleteAction::make(),
+            ]),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
