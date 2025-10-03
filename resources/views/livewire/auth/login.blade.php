@@ -18,18 +18,6 @@
   </head>
 
   <body class="m-0 font-sans antialiased font-normal bg-white text-start text-base leading-default text-slate-500">
-    <div class="container sticky top-0 z-sticky">
-      <div class="flex flex-wrap -mx-3">
-        <div class="w-full max-w-full px-3 flex-0">
-          <!-- Navbar -->
-          <nav class="absolute top-0 left-0 right-0 z-30 flex flex-wrap items-center px-4 py-2 m-6 mb-0 shadow-sm rounded-xl bg-white/80 backdrop-blur-2xl backdrop-saturate-200 lg:flex-nowrap lg:justify-start">
-            <div class="flex items-center justify-between w-full p-0 px-6 mx-auto flex-wrap-inherit">
-              <a class="py-1.75 text-sm mr-4 ml-4 whitespace-nowrap font-bold text-slate-700 lg:ml-0" href="#" target="_blank">Argon Dashboard 2</a>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
 
     <main class="mt-0 transition-all duration-200 ease-in-out">
       <section>
@@ -86,26 +74,6 @@
         </div>
       </section>
     </main>
-
-    <footer class="py-12">
-      <div class="container">
-        <div class="flex flex-wrap -mx-3">
-          <div class="flex-shrink-0 w-full max-w-full mx-auto mb-6 text-center lg:flex-0 lg:w-8/12">
-            <a href="javascript:;" target="_blank" class="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12">Company</a>
-            <a href="javascript:;" target="_blank" class="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12">About Us</a>
-          </div>
-        </div>
-        <div class="flex flex-wrap -mx-3">
-          <div class="w-8/12 max-w-full px-3 mx-auto mt-1 text-center flex-0">
-            <p class="mb-0 text-slate-400">
-              Copyright ©
-              <script>document.write(new Date().getFullYear());</script>
-              Argon Dashboard 2 by Creative Tim.
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
 
     <script src="{{ asset('argon/build/assets/js/plugins/perfect-scrollbar.min.js') }}" async></script>
     <script src="{{ asset('argon/build/assets/js/argon-dashboard-tailwind.js?v=1.0.1') }}" async></script>

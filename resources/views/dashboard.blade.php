@@ -36,12 +36,6 @@
 
         <!-- Quick Menu -->
         <nav class="flex items-center space-x-4 ">
-            <button class="p-2 rounded-full hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300">
-                🔍 <span class="sr-only">Search</span>
-            </button>
-            <button class="p-2 rounded-full hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300">
-                🔔 <span class="sr-only">Notifications</span>
-            </button>
             <div class="relative">
                 <button id="profile-dropdown-toggle" class="flex items-center p-2 rounded-full hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300">
                     👤 <span class="sr-only">User Profile</span>

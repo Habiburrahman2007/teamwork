@@ -156,13 +156,6 @@
                     </div>
                 </div>
             </section>
-
-            <!-- Footer -->
-            <footer class="py-12">
-                <div class="container text-center text-slate-400">
-                    <p class="mb-0">Copyright &copy; {{ date('Y') }} Argon Dashboard 2 by Creative Tim.</p>
-                </div>
-            </footer>
         </main>
 
         <!-- Scripts -->
