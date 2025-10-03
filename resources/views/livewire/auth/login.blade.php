@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png" />
     <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
-    <title>Argon Dashboard 2 Tailwind - Livewire Login</title>
+    <title>Login</title>
     <!-- Fonts and icons -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
@@ -57,7 +57,7 @@
                     </form>
                   </div>
                   <div class="border-black/12.5 rounded-b-2xl border-t-0 border-solid p-6 text-center pt-0 px-1 sm:px-6">
-                    <p class="mx-auto mb-6 leading-normal text-sm">Don't have an account? <a href="../pages/sign-up.html" class="font-semibold text-transparent bg-clip-text bg-gradient-to-tl from-blue-500 to-violet-500">Sign up</a></p>
+                    <p class="mx-auto mb-6 leading-normal text-sm">Don't have an account? <a href="{{ route('register') }}" class="font-semibold text-transparent bg-clip-text bg-gradient-to-tl from-blue-500 to-violet-500">Sign up</a></p>
                   </div>
                 </div>
               </div>
