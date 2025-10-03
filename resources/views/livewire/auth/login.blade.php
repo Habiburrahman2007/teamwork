@@ -75,26 +75,6 @@
       </section>
     </main>
 
-    <footer class="py-12">
-      <div class="container">
-        <div class="flex flex-wrap -mx-3">
-          <div class="flex-shrink-0 w-full max-w-full mx-auto mb-6 text-center lg:flex-0 lg:w-8/12">
-            <a href="javascript:;" target="_blank" class="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12">Company</a>
-            <a href="javascript:;" target="_blank" class="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12">About Us</a>
-          </div>
-        </div>
-        <div class="flex flex-wrap -mx-3">
-          <div class="w-8/12 max-w-full px-3 mx-auto mt-1 text-center flex-0">
-            <p class="mb-0 text-slate-400">
-              Copyright ©
-              <script>document.write(new Date().getFullYear());</script>
-              Argon Dashboard 2 by Creative Tim.
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
-
     <script src="{{ asset('argon/build/assets/js/plugins/perfect-scrollbar.min.js') }}" async></script>
     <script src="{{ asset('argon/build/assets/js/argon-dashboard-tailwind.js?v=1.0.1') }}" async></script>
     @livewireScripts
