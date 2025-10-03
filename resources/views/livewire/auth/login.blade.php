@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png" />
     <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
-    <title>Argon Dashboard 2 Tailwind - Livewire Login</title>
+    <title>Login</title>
     <!-- Fonts and icons -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
@@ -18,18 +18,6 @@
   </head>
 
   <body class="m-0 font-sans antialiased font-normal bg-white text-start text-base leading-default text-slate-500">
-    <div class="container sticky top-0 z-sticky">
-      <div class="flex flex-wrap -mx-3">
-        <div class="w-full max-w-full px-3 flex-0">
-          <!-- Navbar -->
-          <nav class="absolute top-0 left-0 right-0 z-30 flex flex-wrap items-center px-4 py-2 m-6 mb-0 shadow-sm rounded-xl bg-white/80 backdrop-blur-2xl backdrop-saturate-200 lg:flex-nowrap lg:justify-start">
-            <div class="flex items-center justify-between w-full p-0 px-6 mx-auto flex-wrap-inherit">
-              <a class="py-1.75 text-sm mr-4 ml-4 whitespace-nowrap font-bold text-slate-700 lg:ml-0" href="#" target="_blank">Argon Dashboard 2</a>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </div>
 
     <main class="mt-0 transition-all duration-200 ease-in-out">
       <section>
@@ -69,7 +57,7 @@
                     </form>
                   </div>
                   <div class="border-black/12.5 rounded-b-2xl border-t-0 border-solid p-6 text-center pt-0 px-1 sm:px-6">
-                    <p class="mx-auto mb-6 leading-normal text-sm">Don't have an account? <a href="../pages/sign-up.html" class="font-semibold text-transparent bg-clip-text bg-gradient-to-tl from-blue-500 to-violet-500">Sign up</a></p>
+                    <p class="mx-auto mb-6 leading-normal text-sm">Don't have an account? <a href="{{ route('register') }}" class="font-semibold text-transparent bg-clip-text bg-gradient-to-tl from-blue-500 to-violet-500">Sign up</a></p>
                   </div>
                 </div>
               </div>
