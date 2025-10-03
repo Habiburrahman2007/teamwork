@@ -99,42 +99,66 @@
     </div>
 
     <script>
-    document.addEventListener("livewire:navigated", () => {
-        initSidebar();
-        initDropdown();
-    });
+        document.addEventListener('livewire:load', () => {
+            initSidebar();
+            initDropdown();
 
-    function initSidebar() {
-        const sidebarToggle = document.getElementById('sidebar-toggle');
-        const sidebar = document.querySelector('.sidebar');
-        const sidebarOverlay = document.getElementById('sidebar-overlay');
-
-        sidebarToggle?.addEventListener('click', () => {
-            sidebar.classList.toggle('open');
-            sidebarOverlay.classList.toggle('active');
+            // Pastikan toggle tetap jalan setelah navigasi Livewire
+            document.addEventListener('livewire:navigated', () => {
+                initSidebar();
+                initDropdown();
+            });
         });
 
-        sidebarOverlay?.addEventListener('click', () => {
-            sidebar.classList.remove('open');
-            sidebarOverlay.classList.remove('active');
-        });
-    }
+        function initSidebar() {
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+            const sidebar = document.querySelector('.sidebar');
+            const sidebarOverlay = document.getElementById('sidebar-overlay');
 
-    function initDropdown() {
-        const profileDropdownToggle = document.getElementById('profile-dropdown-toggle');
-        const profileDropdownMenu = document.getElementById('profile-dropdown-menu');
+            if (!sidebarToggle || !sidebar || !sidebarOverlay) return;
 
-        profileDropdownToggle?.addEventListener('click', () => {
-            profileDropdownMenu.classList.toggle('hidden');
-        });
+            // Hapus listener lama
+            sidebarToggle.onclick = null;
+            sidebarOverlay.onclick = null;
 
-        document.addEventListener('click', (event) => {
-            if (!profileDropdownToggle?.contains(event.target) && !profileDropdownMenu?.contains(event.target)) {
-                profileDropdownMenu?.classList.add('hidden');
-            }
-        });
-    }
-</script>
+            // Toggle sidebar
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+                sidebarOverlay.classList.toggle('active');
+            });
+
+            // Klik overlay untuk menutup
+            sidebarOverlay.addEventListener('click', () => {
+                sidebar.classList.remove('open');
+                sidebarOverlay.classList.remove('active');
+            });
+        }
+
+        // Dropdown profile
+        let dropdownInitialized = false;
+
+        function initDropdown() {
+            if (dropdownInitialized) return; // supaya listener tidak menumpuk
+            dropdownInitialized = true;
+
+            const toggle = document.getElementById('profile-dropdown-toggle');
+            const menu = document.getElementById('profile-dropdown-menu');
+            if (!toggle || !menu) return;
+
+            // Toggle dropdown
+            toggle.onclick = (e) => {
+                e.stopPropagation();
+                menu.classList.toggle('hidden');
+            };
+
+            // Klik di luar dropdown untuk menutup
+            document.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        }
+    </script>
+
+
 
 </body>
 
