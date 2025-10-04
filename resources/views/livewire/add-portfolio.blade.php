@@ -21,9 +21,9 @@
             dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
             dark:focus:ring-primary-500 dark:focus:border-primary-500"
                         placeholder="Type portfolio name" required>
-                        @error('title')
-                            <span class="text-red-600 text-sm">{{ $message }}</span>
-                        @enderror
+                    @error('title')
+                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Category -->
@@ -31,19 +31,19 @@
                     <label for="category" class="block mb-2 text-sm font-medium text-gray-900">Category</label>
                     <select id="category" wire:model="category"
                         class="bg-gray-50 border border-gray-300 text-gray-400 text-sm rounded-lg 
-            focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 
-            dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
-            dark:focus:ring-primary-500 dark:focus:border-primary-500">
+        focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 
+        dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
+        dark:focus:ring-primary-500 dark:focus:border-primary-500">
                         <option value="">Select category</option>
-                        <option value="TV">TV/Monitors</option>
-                        <option value="PC">PC</option>
-                        <option value="GA">Gaming/Console</option>
-                        <option value="PH">Phones</option>
+                        @foreach ($categories as $key => $value)
+                            <option value="{{ $key }}">{{ $value }}</option>
+                        @endforeach
                     </select>
                     @error('category')
                         <span class="text-red-600 text-sm">{{ $message }}</span>
                     @enderror
                 </div>
+
 
                 <!-- Description -->
                 <div class="sm:col-span-2">
@@ -56,9 +56,9 @@
             dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
             dark:focus:ring-primary-500 dark:focus:border-primary-500"
                         placeholder="Your description here"></textarea>
-                        @error('description')
-                            <span class="text-red-600 text-sm">{{ $message }}</span>
-                        @enderror
+                    @error('description')
+                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- File Upload -->
@@ -91,7 +91,7 @@
                 class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center 
                 text-white bg-indigo-700 rounded-lg focus:ring-4 focus:ring-indigo-200 
                 dark:focus:ring-indigo-900 hover:bg-indigo-800">
-                Add product
+                Add Portfolio
             </button>
         </form>
     </div>

@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Portfolio;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\Layout;
 
 class AddPortfolio extends Component
 {
@@ -14,8 +15,17 @@ class AddPortfolio extends Component
     public $title;
     public $description;
     public $category;
+    public $categories;
     public $image;
 
+    #[Layout('layouts.app')]
+    public function mount()
+    {
+        // Bisa hardcoded atau ambil dari DB
+        $this->categories = [
+            'NATURE' => 'NATURE',
+        ];
+    }
     public function submit()
     {
         $this->validate([
