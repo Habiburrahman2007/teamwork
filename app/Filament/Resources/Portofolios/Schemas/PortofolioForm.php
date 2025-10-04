@@ -24,6 +24,7 @@ class PortofolioForm
                 ->rows(5),
             FileUpload::make('image_url')
                 ->label('Image')
+                ->disk('public')
                 ->image()
                 ->directory('portofolios'),
             DatePicker::make('created_date')
