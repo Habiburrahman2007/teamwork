@@ -3,36 +3,46 @@
         <h2 class="mb-4 text-2xl font-bold text-gray-900 text-center">
             Add a new portfolio
         </h2>
-        <form action="#">
+        @if (session()->has('success'))
+            <div class="p-3 mb-4 text-sm text-green-700 bg-green-100 rounded-lg">
+                {{ session('success') }}
+            </div>
+        @endif
+        <form wire:submit.prevent="submit" enctype="multipart/form-data">
             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
-
                 <!-- Title -->
                 <div>
                     <label for="title" class="block mb-2 text-sm font-medium text-gray-900">
                         Title
                     </label>
-                    <input type="text" name="name" id="title"
+                    <input type="text" wire:model="title" id="title"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
             focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 
             dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
             dark:focus:ring-primary-500 dark:focus:border-primary-500"
                         placeholder="Type portfolio name" required>
+                        @error('title')
+                            <span class="text-red-600 text-sm">{{ $message }}</span>
+                        @enderror
                 </div>
 
                 <!-- Category -->
                 <div>
                     <label for="category" class="block mb-2 text-sm font-medium text-gray-900">Category</label>
-                    <select id="category"
+                    <select id="category" wire:model="category"
                         class="bg-gray-50 border border-gray-300 text-gray-400 text-sm rounded-lg 
             focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 
             dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
             dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                        <option selected>Select category</option>
+                        <option value="">Select category</option>
                         <option value="TV">TV/Monitors</option>
                         <option value="PC">PC</option>
                         <option value="GA">Gaming/Console</option>
                         <option value="PH">Phones</option>
                     </select>
+                    @error('category')
+                        <span class="text-red-600 text-sm">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Description -->
@@ -40,12 +50,15 @@
                     <label for="description" class="block mb-2 text-sm font-medium text-gray-900">
                         Description
                     </label>
-                    <textarea id="description" rows="8"
+                    <textarea id="description" rows="8" wire:model="description"
                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border 
             border-gray-300 focus:ring-primary-500 focus:border-primary-500 
             dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 
             dark:focus:ring-primary-500 dark:focus:border-primary-500"
                         placeholder="Your description here"></textarea>
+                        @error('description')
+                            <span class="text-red-600 text-sm">{{ $message }}</span>
+                        @enderror
                 </div>
 
                 <!-- File Upload -->
@@ -64,7 +77,10 @@
                             <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)
                             </p>
                         </div>
-                        <input id="dropzone-file" type="file" class="hidden" />
+                        <input id="dropzone-file" type="file" class="hidden" wire:model="image" />
+                        @error('image')
+                            <span class="text-red-600 text-sm">{{ $message }}</span>
+                        @enderror
                     </label>
                 </div>
 
