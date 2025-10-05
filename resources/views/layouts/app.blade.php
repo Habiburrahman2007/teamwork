@@ -1,165 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PortoHub Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom styles for icons and responsive sidebar */
-        @media (max-width: 767px) {
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.3s ease-in-out;
-            }
-
-            .sidebar.open {
-                transform: translateX(0);
-            }
-
-            .overlay {
-                display: none;
-            }
-
-            .overlay.active {
-                display: block;
-            }
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="76x76" href="argon/build/assets/img/apple-icon.png" />
+    <link rel="icon" type="image/png" href="argon/build/assets/img/favicon.png" />
+    <title>Argon Dashboard 2 Tailwind by Creative Tim</title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Nucleo Icons -->
+    <link href="argon/build/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="argon/build/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Popper -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <!-- Main Styling -->
+    <link href="argon/build/assets/css/argon-dashboard-tailwind.css?v=1.0.1" rel="stylesheet" />
 </head>
 
-<body class="bg-gray-100 min-h-screen flex flex-col">
-    <!-- Header / Navbar -->
-    <header class="bg-white shadow-sm p-4 flex items-center justify-between sticky top-0 z-50">
-        <div class="flex items-center">
-            <button id="sidebar-toggle"
-                class="md:hidden p-2 mr-2 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
-                    </path>
-                </svg>
-            </button>
-            <div class="text-2xl font-bold text-gray-800">PortoHub</div>
-        </div>
-
-        <!-- Quick Menu -->
-        <nav class="flex items-center space-x-4 ">
-            <button class="p-2 rounded-full hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300">
-                🔍 <span class="sr-only">Search</span>
-            </button>
-            <div class="relative">
-                <button id="profile-dropdown-toggle"
-                    class="flex items-center p-2 rounded-full hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300">
-                    👤 <span class="sr-only">User Profile</span>
-                </button>
-                <!-- Dropdown Menu -->
-                <div id="profile-dropdown-menu"
-                    class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden">
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Akun</a>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Pengaturan</a>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</a>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <div class="flex flex-1">
-        <!-- Sidebar Navigation -->
-        <aside
-            class="sidebar bg-white w-64 p-4 shadow-md md:relative absolute inset-y-0 left-0 z-40 flex-shrink-0 md:translate-x-0">
-            <nav class="mt-4">
-                <ul>
-                    <li class="mb-2">
-                        <a href="#" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded-md">
-                            🏠 <span class="ml-3">Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="mb-2">
-                        <a href="#" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded-md">
-                            📁 <span class="ml-3">Portofolio Saya</span>
-                        </a>
-                    </li>
-                    <li class="mb-2">
-                        <a href="#" class="flex items-center p-2 text-gray-700 hover:bg-gray-200 rounded-md">
-                            ➕ <span class="ml-3">Tambah Proyek</span>
-                        </a>
-                    </li>
-
-                </ul>
-            </nav>
-        </aside>
-
-        <!-- Overlay for mobile sidebar -->
-        <div id="sidebar-overlay" class="overlay fixed inset-0 bg-black opacity-50 z-30 hidden md:hidden"></div>
-
-        <!-- Main Content Area (Pinterest-like grid) -->
-        {{ $slot }}
-    </div>
-
-    <script>
-        document.addEventListener('livewire:load', () => {
-            initSidebar();
-            initDropdown();
-
-            // Pastikan toggle tetap jalan setelah navigasi Livewire
-            document.addEventListener('livewire:navigated', () => {
-                initSidebar();
-                initDropdown();
-            });
-        });
-
-        function initSidebar() {
-            const sidebarToggle = document.getElementById('sidebar-toggle');
-            const sidebar = document.querySelector('.sidebar');
-            const sidebarOverlay = document.getElementById('sidebar-overlay');
-
-            if (!sidebarToggle || !sidebar || !sidebarOverlay) return;
-
-            // Hapus listener lama
-            sidebarToggle.onclick = null;
-            sidebarOverlay.onclick = null;
-
-            // Toggle sidebar
-            sidebarToggle.addEventListener('click', () => {
-                sidebar.classList.toggle('open');
-                sidebarOverlay.classList.toggle('active');
-            });
-
-            // Klik overlay untuk menutup
-            sidebarOverlay.addEventListener('click', () => {
-                sidebar.classList.remove('open');
-                sidebarOverlay.classList.remove('active');
-            });
-        }
-
-        // Dropdown profile
-        let dropdownInitialized = false;
-
-        function initDropdown() {
-            if (dropdownInitialized) return; // supaya listener tidak menumpuk
-            dropdownInitialized = true;
-
-            const toggle = document.getElementById('profile-dropdown-toggle');
-            const menu = document.getElementById('profile-dropdown-menu');
-            if (!toggle || !menu) return;
-
-            // Toggle dropdown
-            toggle.onclick = (e) => {
-                e.stopPropagation();
-                menu.classList.toggle('hidden');
-            };
-
-            // Klik di luar dropdown untuk menutup
-            document.addEventListener('click', () => {
-                menu.classList.add('hidden');
-            });
-        }
-    </script>
-
-
-
+<body
+    class="m-0 font-sans text-base antialiased font-normal dark:bg-slate-900 leading-default bg-gray-50 text-slate-500">
+    <div class="absolute w-full bg-blue-500 dark:hidden min-h-75"></div>
+    <!-- sidenav  -->
+    {{ $slot }}
 </body>
+<!-- plugin for charts  -->
+<script src="argon/build/assets/js/plugins/chartjs.min.js" async></script>
+<!-- plugin for scrollbar  -->
+<script src="argon/build/assets/js/plugins/perfect-scrollbar.min.js" async></script>
+<!-- main script file  -->
+<script src="argon/build/assets/js/argon-dashboard-tailwind.js?v=1.0.1" async></script>
 
 </html>
