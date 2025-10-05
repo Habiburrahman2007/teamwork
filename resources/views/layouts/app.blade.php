@@ -79,6 +79,7 @@
 
     <main class="h-full max-h-screen max-w-xl !lg:ml-96 p-6">
         {{ $slot }}
+        
     </main>
     
 </body>
