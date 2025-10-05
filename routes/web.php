@@ -5,8 +5,9 @@ use App\Livewire\Auth\Register;
 use App\Livewire\Auth\Login;
 use App\Livewire\HomePage;
 use App\Livewire\AddPortfolio; // pastikan ini ada dan hanya sekali
+use App\Livewire\LandingPage;
 
-Route::get('/', fn () => view('welcome'));
+Route::get('/', LandingPage::class);
 
 Route::get('/register', Register::class)->name('register');
 Route::get('/login', Login::class)->name('login');

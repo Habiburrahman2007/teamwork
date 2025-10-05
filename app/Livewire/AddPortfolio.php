@@ -3,10 +3,11 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use App\Models\Category;
 use App\Models\Portfolio;
 use Livewire\WithFileUploads;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Layout;
+use Illuminate\Support\Facades\Auth;
 
 class AddPortfolio extends Component
 {
@@ -14,7 +15,7 @@ class AddPortfolio extends Component
 
     public $title;
     public $description;
-    public $category;
+    public $category = '';
     public $categories;
     public $image;
 
@@ -22,9 +23,7 @@ class AddPortfolio extends Component
     public function mount()
     {
         // Bisa hardcoded atau ambil dari DB
-        $this->categories = [
-            'NATURE' => 'NATURE',
-        ];
+        $this->categories = Category::all();
     }
     public function submit()
     {
