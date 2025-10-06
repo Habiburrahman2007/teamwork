@@ -45,14 +45,27 @@
 
                     <!-- Upload -->
                     <div class="sm:col-span-2">
-                        <label class="block mb-2 text-sm font-medium text-gray-700" for="user_avatar">Upload
-                            Portfolio</label>
+                        <label class="block mb-2 text-sm font-medium text-gray-700" for="user_avatar">
+                            Upload Portfolio
+                        </label>
+
                         <input id="user_avatar" type="file" wire:model="image"
                             class="block w-full text-sm text-gray-900 border border-gray-400 rounded-lg cursor-pointer bg-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 mb-3">
+
+                        <!-- Preview Image -->
+                        @if ($image)
+                            <div class="mb-3">
+                                <p class="text-sm text-gray-500 mb-1">Preview:</p>
+                                <img src="{{ $image->temporaryUrl() }}" alt="Preview"
+                                    class="w-48 h-auto rounded-md border">
+                            </div>
+                        @endif
+
                         @error('image')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                     </div>
+
                 </div>
 
                 <!-- Submit Button -->

@@ -67,12 +67,14 @@
                                             @enderror
                                         </div>
 
+                                        <!-- Password Field -->
                                         <div x-data="{ show: false }" class="mb-4 relative">
                                             <input :type="show ? 'text' : 'password'" wire:model.lazy="password"
                                                 placeholder="Password"
                                                 class="placeholder:text-gray-500 text-sm block w-full rounded-lg border border-gray-300 py-2 px-3 focus:border-blue-500 focus:outline-none" />
                                             <button type="button" @click="show = !show"
                                                 class="absolute inset-y-0 right-3 flex items-center text-gray-500 hover:text-gray-700">
+                                                <!-- Eye Icon -->
                                                 <svg x-show="!show" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
                                                     fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -93,18 +95,20 @@
                                                             6.1l11.8 11.8" />
                                                 </svg>
                                             </button>
+
                                             @error('password')
-                                                <span class="text-red-500 text-sm">{{ $message }}</span>
+                                                <span class="text-red-500 text-sm block mt-1">{{ $message }}</span>
                                             @enderror
                                         </div>
 
-                                        <!-- Confirm Password -->
+                                        <!-- Confirm Password Field -->
                                         <div x-data="{ show: false }" class="mb-4 relative">
-                                            <input :type="show ? 'text' : 'password'" wire:model.lazy="password_confirmation"
-                                                placeholder="Confirm Password"
+                                            <input :type="show ? 'text' : 'password'"
+                                                wire:model.lazy="password_confirmation" placeholder="Confirm Password"
                                                 class="placeholder:text-gray-500 text-sm block w-full rounded-lg border border-gray-300 py-2 px-3 focus:border-blue-500 focus:outline-none" />
                                             <button type="button" @click="show = !show"
                                                 class="absolute inset-y-0 right-3 flex items-center text-gray-500 hover:text-gray-700">
+                                                <!-- Eye Icon -->
                                                 <svg x-show="!show" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
                                                     fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -125,7 +129,12 @@
                                                             6.1l11.8 11.8" />
                                                 </svg>
                                             </button>
+
+                                            @error('password_confirmation')
+                                                <span class="text-red-500 text-sm block mt-1">{{ $message }}</span>
+                                            @enderror
                                         </div>
+
 
 
                                         <div class="text-center">

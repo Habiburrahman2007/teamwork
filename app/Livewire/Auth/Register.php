@@ -5,21 +5,32 @@ namespace App\Livewire\Auth;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\Attributes\Title;
-use Illuminate\Support\Facades\Hash;
 use Livewire\Attributes\Layout;
+use Illuminate\Support\Facades\Hash;
 
 class Register extends Component
 {
     #[Layout('layouts.auth')]
-    #[Title('Login Page')]
+    #[Title('Register Page')]
     public $name, $email, $password, $password_confirmation;
+
+    // Rules Livewire
+    protected $rules = [
+        'name' => 'required|min:3',
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required|min:8|confirmed',
+    ];
+
+    // Validasi realtime saat user mengetik password
+    public function updatedPassword()
+    {
+        $this->validateOnly('password');
+    }
+
     public function register()
     {
-        $this->validate([
-            'name' => 'required|min:3',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6|confirmed',
-        ]);
+        // Validasi semua fields
+        $this->validate();
 
         $user = User::create([
             'name' => $this->name,
