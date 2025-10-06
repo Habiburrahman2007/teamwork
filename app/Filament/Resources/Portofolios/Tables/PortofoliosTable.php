@@ -30,16 +30,10 @@ class PortofoliosTable
                 BadgeColumn::make('category.name')
                     ->label('Category')
                     ->colors([
-                        'success' => 'Nature',
-                        'gray' => 'Vintage',
-                        'warning' => 'Portrait',
-                        'danger' => 'Wildlife',
-                        'info' => 'Street',
-                        'secondary' => 'Macro',
-                        'primary' => 'Architecture',
-                        'white' => 'Documentary',
-                        'purple' => 'Astrography',
-                        'pink' => 'Fashion',
+                        'success' => 'NATURE',
+                        'white' => 'VINTAGE',
+                        'gray' => 'STREET',
+                        'info' => 'SKY'
                     ])
                     ->sortable()
                     ->searchable(),

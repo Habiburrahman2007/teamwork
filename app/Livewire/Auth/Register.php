@@ -29,12 +29,11 @@ class Register extends Component
 
         auth()->login($user);
 
-        return redirect()->route('login');
+        return redirect()->route('dashboard');
     }
 
     public function render()
     {
-        return view('livewire.auth.register')
-            ->layout('layouts.app');
+        return view('livewire.auth.register');
     }
 }
