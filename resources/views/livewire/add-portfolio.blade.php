@@ -45,10 +45,10 @@
 
                     <!-- Upload -->
                     <div class="sm:col-span-2">
-                        <label class="block mb-2 text-sm font-medium text-gray-700"
-                            for="user_avatar">Upload Portfolio</label>
+                        <label class="block mb-2 text-sm font-medium text-gray-700" for="user_avatar">Upload
+                            Portfolio</label>
                         <input id="user_avatar" type="file" wire:model="image"
-                            class="block w-full text-sm text-gray-900 border border-gray-400 rounded-lg cursor-pointer bg-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400">
+                            class="block w-full text-sm text-gray-900 border border-gray-400 rounded-lg cursor-pointer bg-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 mb-3">
                         @error('image')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
@@ -57,9 +57,11 @@
 
                 <!-- Submit Button -->
                 <button type="submit"
-                    class="inline-flex items-center px-5 py-2.5 mt-6 text-sm font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200">
+                    class="inline-flex items-center justify-center w-full sm:w-auto px-5 py-2.5 text-sm font-semibold 
+    text-black bg-indigo-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 shadow-md transition">
                     Add Portfolio
                 </button>
+
             </form>
         </div>
     </section>

@@ -8,8 +8,8 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-4">
             @foreach ($portfolios as $portfolio)
-                <div
-                    class="bg-white rounded-md shadow-sm overflow-hidden flex flex-col transition-transform hover:scale-105 duration-200 mb-3">
+                <div class="bg-white p-4 rounded-lg shadow cursor-pointer hover:shadow-md transition"
+                    onclick="window.location='{{ route('portfolio.detail', $portfolio->id) }}'">
 
                     <!-- Gambar -->
                     <div class="relative w-full aspect-[4/3] overflow-hidden">
@@ -31,19 +31,19 @@
 
                             <div class="flex items-center gap-2">
                                 <!-- Like -->
-                                <button wire:click="like({{ $portfolio->id }})" class="flex items-center space-x-1">
+                                <button onclick="event.stopPropagation()" wire:click="like({{ $portfolio->id }})"
+                                    class="flex items-center space-x-1">
                                     <svg xmlns="http://www.w3.org/2000/svg"
                                         class="h-5 w-5 {{ $portfolio->likes->where('user_id', auth()->id())->count() ? 'text-red-600' : 'text-gray-400' }} transition-colors duration-150"
                                         viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
-                                                2 6 4 4 6.5 4c1.74 0 3.41 1.01 4.13 2.44
-                                                C11.09 5.01 12.76 4 14.5 4
-                                                17 4 19 6 19 8.5
-                                                c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                2 6 4 4 6.5 4c1.74 0 3.41 1.01 4.13 2.44
+                C11.09 5.01 12.76 4 14.5 4
+                17 4 19 6 19 8.5
+                c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                                     </svg>
                                     <span>{{ $portfolio->likes->count() }}</span>
                                 </button>
-
 
                                 <!-- Comment -->
                                 <span class="flex items-center gap-1 text-gray-500">
@@ -55,6 +55,22 @@
                                     </svg>
                                     {{ $portfolio->comments_count ?? 0 }}
                                 </span>
+
+                                @if (auth()->id() === $portfolio->user_id)
+                                    <a onclick="event.stopPropagation()"
+                                        href="{{ route('portfolio.edit', $portfolio->id) }}"
+                                        class="text-gray-500 hover:text-blue-600 transition-colors duration-150 flex items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor"
+                                            viewBox="0 0 20 20">
+                                            <path d="M17.414 2.586a2 2 0 0 0-2.828 0L7
+            10.172V13h2.828l7.586-7.586a2 2 0
+            0 0 0-2.828zM4 15a1 1 0 0 0-1
+            1v2a1 1 0 0 0 1 1h2a1 1 0 0
+            0 1-1v-2a1 1 0 0 0-1-1H4z" />
+                                        </svg>
+                                    </a>
+                                @endif
+
                             </div>
                         </div>
                     </div>

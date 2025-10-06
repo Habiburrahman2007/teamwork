@@ -3,9 +3,11 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Models\Portfolio;
 use App\Models\Category;
+use App\Models\Portfolio;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\Title;
+use Livewire\Attributes\Layout;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -20,6 +22,8 @@ class EditPortfolio extends Component
     public $image; // temporary uploaded file
     public $existingImageUrl; // path stored in DB
     public $categories;
+    #[Layout('layouts.app')]
+    #[Title('Edit Portfolio')]
 
     public function mount($id)
     {

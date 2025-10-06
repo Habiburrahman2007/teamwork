@@ -5,6 +5,7 @@ use App\Livewire\Auth\Login;
 use App\Livewire\LandingPage;
 use App\Livewire\AddPortfolio;
 use App\Livewire\Auth\Register;
+use App\Livewire\DetailPortofolio;
 use App\Livewire\EditPortfolio;
 use Illuminate\Support\Facades\Route;
 
@@ -17,5 +18,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', HomePage::class)->name('dashboard');
     Route::get('/add-portfolio', AddPortfolio::class)->name('add-portfolio'); 
     Route::get('/portfolio/{id}/edit', EditPortfolio::class)->name('portfolio.edit');
+    Route::get('/portfolio/{id}', DetailPortofolio::class)->name('portfolio.detail');
 });
 
