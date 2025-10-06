@@ -3,13 +3,16 @@
 namespace App\Livewire\Auth;
 
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
+use Livewire\Attributes\Title;
+use Illuminate\Support\Facades\Hash;
+use Livewire\Attributes\Layout;
 
 class Register extends Component
 {
+    #[Layout('layouts.auth')]
+    #[Title('Login Page')]
     public $name, $email, $password, $password_confirmation;
-
     public function register()
     {
         $this->validate([

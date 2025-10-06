@@ -8,16 +8,17 @@ use App\Models\Portfolio;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Layout;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\Title;
 
 class AddPortfolio extends Component
 {
     use WithFileUploads;
-
     public $title;
     public $description;
     public $category = '';
     public $categories;
     public $image;
+    #[Title('Add Portfolio')]
 
     #[Layout('layouts.app')]
     public function mount()

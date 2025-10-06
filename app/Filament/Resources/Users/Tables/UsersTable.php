@@ -25,7 +25,10 @@ class UsersTable
                         'primary' => 'user',
                         'success' => 'admin',
                     ]),
-                TextColumn::make('created_at')->label('Dibuat')->dateTime(),
+                TextColumn::make('created_at')
+                    ->dateTime('d M Y H:i'),
+
+                
             ])
             ->filters([
                 //

@@ -6,35 +6,61 @@
         <!-- Navbar -->
 
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-8 gap-2 mt-4 mx-auto px-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-4">
             @foreach ($portfolios as $portfolio)
                 <div
-                    class="bg-white dark:bg-slate-850 rounded-md shadow-sm overflow-hidden flex flex-col transition-transform hover:scale-105 mb-3">
-                    <!-- Gambar kecil -->
-                    <img src="{{ $portfolio->image_url ? asset('storage/' . $portfolio->image_url) : 'https://via.placeholder.com/100x60' }}"
-                        alt="Project Image" class="w-full h-16 object-cover">
+                    class="bg-white rounded-md shadow-sm overflow-hidden flex flex-col transition-transform hover:scale-105 duration-200 mb-3">
 
-                    <!-- Konten ringkas -->
-                    <div class="p-1 flex flex-col flex-1">
-                        <h2 class="text-xs font-semibold text-gray-800 dark:text-white truncate">
-                            {{ $portfolio->title }}</h2>
-                        <p class="text-gray-500 dark:text-gray-400 text-[10px] truncate">
-                            {{ Str::limit($portfolio->description, 30) }}
-                        </p>
+                    <!-- Gambar -->
+                    <div class="relative w-full aspect-[4/3] overflow-hidden">
+                        <img src="{{ $portfolio->image_url ? asset('storage/' . $portfolio->image_url) : 'https://via.placeholder.com/200x150' }}"
+                            alt="Project Image" class="w-full h-full object-cover">
+                        <span class="absolute top-1 right-1 text-[8px] text-white bg-blue-500 rounded-sm px-1 py-0.5">
+                            {{ $portfolio->category->name ?? 'Uncategorized' }}
+                        </span>
+                    </div>
 
-                        <!-- Footer kecil -->
-                        <div class="flex items-center justify-between mt-auto pt-1">
-                            <span
-                                class="text-[9px] text-gray-400 dark:text-gray-500">{{ $portfolio->created_at->diffForHumans() }}</span>
-                            <button class="text-gray-400 hover:text-red-500 text-xs">❤</button>
+                    <!-- Konten -->
+                    <div class="p-1.5 flex flex-col flex-1">
+                        <h2 class="text-[11px] font-semibold text-gray-800 truncate">{{ $portfolio->title }}</h2>
+                        <p class="text-gray-500 text-[9px] truncate">{{ Str::limit($portfolio->description, 25) }}</p>
+
+                        <!-- Footer -->
+                        <div class="flex items-center justify-between mt-auto pt-1 text-[8px]">
+                            <span class="text-gray-400">{{ $portfolio->created_at->diffForHumans() }}</span>
+
+                            <div class="flex items-center gap-2">
+                                <!-- Like -->
+                                <button wire:click="like({{ $portfolio->id }})" class="flex items-center space-x-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="h-5 w-5 {{ $portfolio->likes->where('user_id', auth()->id())->count() ? 'text-red-600' : 'text-gray-400' }} transition-colors duration-150"
+                                        viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5
+                                                2 6 4 4 6.5 4c1.74 0 3.41 1.01 4.13 2.44
+                                                C11.09 5.01 12.76 4 14.5 4
+                                                17 4 19 6 19 8.5
+                                                c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
+                                    <span>{{ $portfolio->likes->count() }}</span>
+                                </button>
+
+
+                                <!-- Comment -->
+                                <span class="flex items-center gap-1 text-gray-500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path d="M21 6h-18c-1.104 0-2 .896-2
+                                    2v9c0 1.104.896 2 2 2h4v4l5-4h9c1.104
+                                    0 2-.896 2-2v-9c0-1.104-.896-2-2-2z" />
+                                    </svg>
+                                    {{ $portfolio->comments_count ?? 0 }}
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
-
-
-
 
         <!-- end Navbar -->
     </main>

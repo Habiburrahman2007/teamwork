@@ -15,6 +15,7 @@ class Portfolio extends Model
         'title',
         'description',
         'image_url',
+        'likes',
         'created_date',
     ];
 
@@ -31,8 +32,9 @@ class Portfolio extends Model
 
     public function likes()
     {
-        return $this->hasMany(Like::class);
+        return $this->hasMany(\App\Models\PortfolioLike::class);
     }
+
 
     public function comments()
     {

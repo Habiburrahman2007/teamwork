@@ -5,11 +5,14 @@ namespace App\Livewire\Auth;
 use layout;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\Layout as AttributesLayout;
+use Livewire\Attributes\Title;
 
 class Login extends Component
 {
+    #[AttributesLayout('layouts.auth')]
+    #[Title('Login Page')]
     public $email, $password;
-
     public function login()
     {
         $this->validate([

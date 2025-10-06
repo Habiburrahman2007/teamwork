@@ -18,27 +18,6 @@
 
     <body class="m-0 font-sans antialiased font-normal bg-white text-start text-base leading-default text-slate-500">
 
-        <!-- Navbar (sama seperti template Argon) -->
-        <nav
-            class="absolute top-0 z-30 flex flex-wrap items-center justify-between w-full px-4 py-2 mt-6 mb-4 shadow-none lg:flex-nowrap lg:justify-start">
-            <div class="container flex items-center justify-between py-0 flex-wrap-inherit">
-                <a class="py-1.75 ml-4 mr-4 font-bold text-white text-sm whitespace-nowrap lg:ml-0" href="#"
-                    target="_blank"> Argon Dashboard 2 </a>
-                <button navbar-trigger
-                    class="px-3 py-1 ml-2 leading-none transition-all ease-in-out bg-transparent border border-transparent border-solid rounded-lg shadow-none cursor-pointer text-lg lg:hidden"
-                    type="button" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="inline-block mt-2 align-middle bg-center bg-no-repeat bg-cover w-6 h-6 bg-none">
-                        <span bar1
-                            class="w-5.5 rounded-xs duration-350 relative my-0 mx-auto block h-px bg-white transition-all"></span>
-                        <span bar2
-                            class="w-5.5 rounded-xs mt-1.75 duration-350 relative my-0 mx-auto block h-px bg-white transition-all"></span>
-                        <span bar3
-                            class="w-5.5 rounded-xs mt-1.75 duration-350 relative my-0 mx-auto block h-px bg-white transition-all"></span>
-                    </span>
-                </button>
-            </div>
-        </nav>
-
         <main class="mt-0 transition-all duration-200 ease-in-out">
             <section class="min-h-screen">
                 <!-- Header background -->
@@ -50,8 +29,7 @@
                         <div class="flex flex-wrap justify-center -mx-3">
                             <div class="w-full max-w-full px-3 mx-auto mt-0 text-center lg:flex-0 shrink-0 lg:w-5/12">
                                 <h1 class="mt-12 mb-2 text-white">Welcome!</h1>
-                                <p class="text-white">Use these awesome forms to login or create new account in your
-                                    project for free.</p>
+                                <p class="text-white">A collection of moments, light, and emotions captured through my lens.</p>
                             </div>
                         </div>
                     </div>
@@ -66,34 +44,7 @@
 
                                 <!-- Header Form -->
                                 <div class="p-6 mb-0 text-center bg-white border-b-0 rounded-t-2xl">
-                                    <h5>Register with</h5>
-                                </div>
-
-                                <!-- Social Login Buttons -->
-                                <div class="flex flex-wrap px-3 -mx-3 sm:px-6 xl:px-12 mt-3">
-                                    <div class="w-3/12 max-w-full px-1 ml-auto flex-0">
-                                        <a href="javascript:;"
-                                            class="inline-block w-full px-5 py-2.5 mb-4 font-bold text-center text-gray-200 uppercase align-middle transition-all bg-transparent border border-gray-200 rounded-lg shadow-none cursor-pointer hover:-translate-y-px leading-pro text-xs ease-in tracking-tight-rem">
-                                            <i class="fab fa-facebook-f"></i>
-                                        </a>
-                                    </div>
-                                    <div class="w-3/12 max-w-full px-1 flex-0">
-                                        <a href="javascript:;"
-                                            class="inline-block w-full px-5 py-2.5 mb-4 font-bold text-center text-gray-200 uppercase align-middle transition-all bg-transparent border border-gray-200 rounded-lg shadow-none cursor-pointer hover:-translate-y-px leading-pro text-xs ease-in tracking-tight-rem">
-                                            <i class="fab fa-google"></i>
-                                        </a>
-                                    </div>
-                                    <div class="w-3/12 max-w-full px-1 mr-auto flex-0">
-                                        <a href="javascript:;"
-                                            class="inline-block w-full px-5 py-2.5 mb-4 font-bold text-center text-gray-200 uppercase align-middle transition-all bg-transparent border border-gray-200 rounded-lg shadow-none cursor-pointer hover:-translate-y-px leading-pro text-xs ease-in tracking-tight-rem">
-                                            <i class="fab fa-github"></i>
-                                        </a>
-                                    </div>
-                                    <div class="relative w-full max-w-full px-3 mt-2 text-center shrink-0">
-                                        <p
-                                            class="z-20 inline px-4 mb-2 font-semibold leading-normal bg-white text-sm text-slate-400">
-                                            or</p>
-                                    </div>
+                                    <h5>Sign Up</h5>
                                 </div>
 
                                 <!-- Livewire Register Form -->
@@ -124,18 +75,6 @@
                                             <input type="password" wire:model="password_confirmation"
                                                 placeholder="Confirm Password"
                                                 class="placeholder:text-gray-500 text-sm block w-full rounded-lg border border-gray-300 py-2 px-3 focus:border-blue-500 focus:outline-none" />
-                                        </div>
-
-                                        <div class="min-h-6 pl-7 mb-0.5 block">
-                                            <input wire:model="terms" type="checkbox" value="1" id="terms"
-                                                class="w-4.8 h-4.8 ease -ml-7 rounded-1.4 checked:bg-gradient-to-tl checked:from-blue-500 checked:to-violet-500 relative float-left mt-1 cursor-pointer appearance-none border border-gray-200 bg-white" />
-                                            <label for="terms"
-                                                class="mb-2 ml-1 font-normal cursor-pointer text-sm text-slate-700">
-                                                I agree to the <a href="#" class="font-bold text-slate-700">Terms and
-                                                    Conditions</a>
-                                            </label>
-                                            @error('terms') <span class="text-red-500 text-sm">{{ $message }}</span>
-                                            @enderror
                                         </div>
 
                                         <div class="text-center">
